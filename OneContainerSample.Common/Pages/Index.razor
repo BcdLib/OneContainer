@@ -1,0 +1,28 @@
+﻿@page "/"
+
+@inject ModalService modalService
+
+
+
+<Button OnClick="OpenModal">OpenModal</Button>
+
+<Button OnClick="OpenBcdForm">OpenBcdForm</Button>
+
+
+@{
+
+
+    async Task OpenModal()
+    {
+        await modalService.InfoAsync(new ConfirmOptions
+        {
+            Content = "Confirm Content"
+        });
+    }
+
+    async Task OpenBcdForm()
+    {
+        BcdForm form = new Form();
+        await form.ShowAsync();
+    }
+}
